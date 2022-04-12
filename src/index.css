@@ -1,13 +1,85 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap");
+
+*,
+::after,
+::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Syne", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+header {
+  font-size: 22px;
+  letter-spacing: 1px;
+  height: 90px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+  background-color: #000;
+  -webkit-box-shadow: 1px 4px 23px 0px rgba(104, 90, 90, 0.57);
+  -moz-box-shadow: 1px 4px 23px 0px rgba(0, 0, 0, 0.57);
+  box-shadow: 1px 4px 23px 0px rgba(0, 0, 0, 0.57);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 3rem;
+}
+
+.btn {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  color: #bfff00;
+  background-color: #000;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+}
+
+input {
+  flex-grow: 2;
+  font-size: 20px;
+  padding: 0.8rem;
+  margin-right: 1rem;
+  border-radius: 8px;
+  width: 30rem;
+}
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  padding: 1rem;
+  border: 2px solid black;
+  width: 44.5rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+}
+
+.btn-delete {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  padding: 0.2rem 0.5rem;
+  color: #000;
+  background-color: #bfff00;
+  cursor: pointer;
 }
