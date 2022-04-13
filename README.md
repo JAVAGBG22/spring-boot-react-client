@@ -14,3 +14,17 @@ När du har fått de första punkterna att fungera kan du börja i valfri ordnin
 - Kunna logga in en användare, du behöver skapa en sida för det här.
 - Ge access till en speciell användare som bara får skapa nya todos, tex. admin är den enda som kan skapa en todo.
 - Skapa en sida för användaren profil där du kan se inloggade användarens namn, epost och vilken typ av användare (admin, moderator eller user).
+
+### API
+
+User model och roll baserad auth finns redan tillgängligt för dig.
+Du behöver skapa:
+
+- En ny model för todo, fundera själv igenom vilka relevanta fält du vill ha till din todo. Mappa den till collection i databasen.
+- Glöm inte att skapa ett repository interface för todo.
+- Du behöver skapa nya endpoints, en controller, för din todo och mappa till "/api/todo" för klassen.
+- Du behöver skapa en service som utför "jobbet" åt dig. Tex om du ska uppdatera en todo så behöver du först hitta den todo som matchar id.
+- Testa ditt API i postman först innan du kopplar det til din klient så att du vet att alla dina endpoints fungerar som dom ska.
+- När du kopplar ihop till din klient börja först med att verifiera att du faktiskt kan hämta rätt data innan du bygger "något vettigt".
+
+
