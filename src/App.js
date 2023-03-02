@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import Header from "./Header";
 import HelloWorldService from "./services/HelloWorldService";
 import UserService from "./services/UserService";
+import TodoService from "./services/TodoService";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -12,11 +13,19 @@ function App() {
   useEffect(() => {
     //getHelloWorld();
     getUsers();
+    getTodos();
   }, []);
 
   const getUsers = () => {
     UserService.getUsers().then((response) => {
       setUsers(response.data);
+      console.log(response.data);
+    });
+  };
+
+  const getTodos = () => {
+    TodoService.getTodos().then((response) => {
+      setTodos(response.data);
       console.log(response.data);
     });
   };
@@ -50,32 +59,35 @@ function App() {
   return (
     <>
       <Header />
-      <div className="container">
-        <form onSubmit={addTodo}>
-          <input
-            autoFocus
-            type="text"
-            placeholder="Add a ToDo"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-          />
-          <button className="btn">Add ToDo</button>
-        </form>
-        {todos.map((todo) => (
-          <div key={todo.id} className="todo">
-            <p>{todo.text}</p>
-            <button className="btn-delete" onClick={() => removeTodo(todo.id)}>
-              Delete
-            </button>
-          </div>
-        ))}
-
-        {users.map((user) => (
-          <div className="todo" key={user.id}>
-            <p>{user.username}</p>
-            <p>{user.email}</p>
-          </div>
-        ))}
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <div className="container">
+          <h1>Users</h1>
+          {users.map((user) => (
+            <div className="todo" key={user.id}>
+              <span>
+                <p>USERNAME:</p>
+                <p>{user.username}</p>
+              </span>
+              <span>
+                {" "}
+                <p>EMAIL:</p>
+                <p>{user.email}</p>
+              </span>
+            </div>
+          ))}
+          <h1 style={{ marginTop: "4rem" }}>Todos</h1>
+          {todos.map((todo) => (
+            <div className="todo" key={todo.id}>
+              <span>
+                <p>TITLE:</p> <p>{todo.title}</p>
+              </span>
+              <span>
+                <p>DESCRIPTION:</p>
+                <p>{todo.description}</p>
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
